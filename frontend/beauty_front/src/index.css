@@ -1,0 +1,56 @@
+body {
+  background-color: rosybrown;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  margin-right: 1rem;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.cart {
+  margin-right: 1%;
+}
+
+.carttext {
+  text-decoration: none;
+  color: white;
+}
+
+#button {
+  color: white;
+  border-color: tan;
+  margin-left: 1%;
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+  text-decoration: double;
+  color: white;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body {
+  background-color: pink;
+  border-radius: 7%;
+}
