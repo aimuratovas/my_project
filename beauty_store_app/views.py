@@ -1,7 +1,6 @@
 from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import get_object_or_404
 from beauty_store_app.models import *
-
-# Create your views here.
 
 
 def products(request):
@@ -71,5 +70,40 @@ def by_category(request, category_id):
         products = list(Product.objects.all().filter(
             category=category).values())
         return JsonResponse(products, safe=False)
+    except Exception as e:
+        return HttpResponseBadRequest(str(e))
+
+
+def cart(request):
+    try:
+        carts = list(Shopping_cart.objects.all().values())
+        return JsonResponse(carts, safe=False)
+    except Exception as e:
+        return HttpResponseBadRequest(str(e))
+
+
+def add_cart(request, product_id):
+    try:
+        product = get_object_or_404(Product, id=product_id)
+        cart, create = Shopping_cart.objects.get_or_create(product=product)
+        cart.quantity += 1
+        cart.save()
+        return JsonResponse({'message': 'Product added to cart successfully.'})
+    except Exception as e:
+        return HttpResponseBadRequest(str(e))
+
+
+def remove_cart(request, product_id):
+    try:
+        product = get_object_or_404(Product, id=product_id)
+        cart = get_object_or_404(Shopping_cart, product=product)
+
+        if cart.quantity > 1:
+            cart.quantity -= 1
+            cart.save()
+        else:
+            cart.delete()
+
+        return JsonResponse({'message': 'Product removed from cart successfully.'})
     except Exception as e:
         return HttpResponseBadRequest(str(e))

@@ -50,7 +50,90 @@ h3 {
   justify-content: center;
 }
 
+.cart-link {
+  text-decoration: none;
+  color: white;
+}
+
 .card-body {
   background-color: pink;
   border-radius: 7%;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.cart-items {
+  margin-left: 10px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.item-name {
+  margin-right: 10px;
+}
+
+.item-price {
+  margin-right: 10px;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: #e74c3c;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.header-column {
+  font-weight: bold;
+}
+
+.cart-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.header-column,
+.cart-item > div {
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn,
+.add-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
 }

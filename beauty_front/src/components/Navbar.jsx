@@ -151,9 +151,9 @@ const Navbar = () => {
             height="40"
             alt="Cart"
           />{' '}
-          <a className="carttext" href="">
-            Cart
-          </a>
+          <Link to="/cart" className="cart-link">
+            Shopping Cart
+          </Link>
         </div>
       </div>
     </nav>
