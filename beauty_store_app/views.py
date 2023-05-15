@@ -166,6 +166,7 @@ def login(request):
     return JsonResponse({'error': 'Invalid request method'})
 
 
+@csrf_exempt
 def logout(request):
     auth_logout(request)
 

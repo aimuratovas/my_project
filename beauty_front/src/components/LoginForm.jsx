@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import './LoginForm.css';
 
-const LoginForm = () => {
+const LoginForm = ({ setLoggedInUser }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
@@ -17,7 +17,7 @@ const LoginForm = () => {
       });
       console.log('response:', response);
       if (response.status === 200) {
-        // Redirect to the home page after successful login
+        setLoggedInUser(data.username);
         history.push('/');
       }
     } catch (error) {

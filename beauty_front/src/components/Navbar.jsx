@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
 
-const Navbar = () => {
+const Navbar = ({ loggedInUser, setLoggedInUser }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [brandDetails, setBrandDetails] = useState([]);
   const [typeDetails, setTypeDetails] = useState([]);
@@ -53,6 +53,15 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/logout/');
+      setLoggedInUser(null);
+    } catch (error) {
+      console.log('Logout error:', error);
+    }
+  };
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="#">
@@ -156,9 +165,24 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="login">
-          <Link to="/login" className="login-link">
-            Log in
-          </Link>
+          {loggedInUser ? (
+            <Dropdown className="custom-dropdown" align="end">
+              <Dropdown.Toggle
+                className="login-link"
+                variant="link"
+                id="dropdown-basic"
+              >
+                {loggedInUser}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          ) : (
+            <Link to="/login" className="login-link">
+              Log in
+            </Link>
+          )}
         </div>
       </div>
     </nav>
