@@ -18,6 +18,14 @@ const ProductsByType = ({ match }) => {
     return res.data;
   };
 
+  const addToCart = async (productId) => {
+    try {
+      await axios.get(`http://127.0.0.1:8000/cart/add/${productId}`);
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+    }
+  };
+
   useEffect(() => {
     getTypes(id);
   }, [id]);
@@ -48,9 +56,10 @@ const ProductsByType = ({ match }) => {
               <Card.Text style={{ color: 'green' }}>$ {product.price}</Card.Text>
               <Link to={`/product/${product.name}`}>
                 <button className='productbutton'>Product details</button>
-                <button className='productbutton'>Add to cart</button>
-                </Link>
-               
+              </Link>
+              <Link to={`/cart`}>
+                <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+              </Link>
             </Card>
           </Col>
         ))}
