@@ -37,6 +37,14 @@ const ProductPage = ({ match }) => {
     getProduct(name);
   }, [name]);
 
+  const addToCart = async (productId) => {
+    try {
+      await axios.get(`http://127.0.0.1:8000/cart/add/${productId}`);
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+    }
+  };
+
   return (
     <>
       <h3>Product info</h3>
@@ -62,8 +70,8 @@ const ProductPage = ({ match }) => {
                   <Row className='text-center'>{productDetails[0].description}</Row>
                 </Card.Text>
               </Card.Body>
-              <Link to='#'>
-                <button className='cartbutton'>Add to cart</button>
+              <Link to={`/cart`}>
+                <button onClick={() => addToCart(productDetails[0].id)}>Add to Cart</button>
               </Link>
               <Link to='/'>
                 <button className='homebutton'>Home</button>
