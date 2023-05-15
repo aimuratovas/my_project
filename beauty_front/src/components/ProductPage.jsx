@@ -60,6 +60,7 @@ const ProductPage = ({ match }) => {
                 padding: '10px',
               }}
             >
+              <Card.Text style={{ color: 'blue' }}>{productDetails[0].name}</Card.Text>
               <Card.Img
                 style={{ width: '15rem', height: '20rem' }}
                 src={productDetails[0].api_featured_image}
