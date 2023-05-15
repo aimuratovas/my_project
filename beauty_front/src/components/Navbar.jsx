@@ -155,6 +155,11 @@ const Navbar = () => {
             Shopping Cart
           </Link>
         </div>
+        <div className="login">
+          <Link to="/login" className="login-link">
+            Log in
+          </Link>
+        </div>
       </div>
     </nav>
   );

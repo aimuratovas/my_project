@@ -32,6 +32,15 @@ h3 {
   color: white;
 }
 
+.login-link {
+  text-decoration: none;
+  color: white;
+}
+
+.login {
+  margin-right: 1%;
+}
+
 #button {
   color: white;
   border-color: tan;

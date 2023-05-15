@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ShoppingCart from './ShoppingCart';
 
 const AllProductsPage = () => {
   const [productDetails, setProductDetails] = useState([]);
@@ -63,7 +62,6 @@ const AllProductsPage = () => {
           </Col>
         ))}
       </Row>
-      <ShoppingCart cartItems={cartItems} />
     </>
   );
 };
