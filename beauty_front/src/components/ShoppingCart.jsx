@@ -131,8 +131,6 @@ const ShoppingCart = () => {
       <div className="cart-total">Total: ${getTotal()}</div>
     </div>
   );
-  
-  
 };
 
 export default ShoppingCart;
