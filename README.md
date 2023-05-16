@@ -35,6 +35,7 @@ Future plans:
 
 - update shopping cart so that it's reflected for each user
 - add checkout and payment page
+- opened up CORS to all origins, in the future only choose trusted domains
 
 API:
 

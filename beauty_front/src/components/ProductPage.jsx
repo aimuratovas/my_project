@@ -16,7 +16,6 @@ const ProductPage = ({ match }) => {
         setProductDetails(null);
       } else {
         setProductDetails(details);
-        // console.log('details: ' + JSON.stringify(details));
       }
     } catch (error) {
       console.log('Error fetching product:', error);

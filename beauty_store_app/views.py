@@ -149,13 +149,7 @@ def login(request):
         username = body_data.get('username')
         password = body_data.get('password')
 
-        print("username: " + username)
-        print("password: " + password)
-
         user = authenticate(request, username=username, password=password)
-
-        print("user: ")
-        print(user)
 
         if user is not None:
             auth_login(request, user)
